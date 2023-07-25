@@ -1,0 +1,56 @@
+@charset "utf-8";
+#box{
+    width: 300px;
+    height: 300px;
+    background-color: pink;
+    margin: 100px auto;
+    transition: 1s;
+}
+/* 
+미디어 쿼리 (mediaquery)
+- 화면의 사이즈(viewport)를 인식해 서로다른 css 적용시키는 것
+- 특정 브라우저 폭 지정 -> css구문 입력 시 해당 브라우저 폭은
+미디어 쿼리 안쪽의 구문이 기존 css를 덮어 적용됨
+즉. css의 최신 구문이 ( 더 하단에 작성된 ) 
+기준 구문으로 덮어쓰는 원칙을 이용한 것
+
+미디어 쿼리 적용 순서
+1. 원본 css와 속성값이 같을 때 생략
+2. 속성값의 수정이 필요하면 -> 그냥 수정 ㄱ
+    -단. 원본의 css구문(태그경로)를 동일하게 작성해야 함
+따라서 되도록 원본 css를 복사해서 작업하는 것 추천
+(안 되는 경우 [#box h1 -> h1 X])
+3. 고정 px 값을 준 요소가 있다면 %나 viewport(vh, vw)로 변경함
+
+
+*/
+
+@media screen and (max-width:1200px) {
+    #box{
+        width: 50%;
+        /* height: 300px;
+        이전의 코드와 같다면 삭제 */
+        background-color: aqua;
+        /* margin: 100px auto; */
+        /* transition: 1s; */
+        /* 추가되는 속성이 있는 경우
+        ***경로에 주의하며***
+        추가할 수 있음.
+        지금은 별로 안 중요할 수 있지만 나중에 중요해짐
+        */
+        border-radius: 20px;
+    }   
+}
+@media screen and (max-width: 450px) {
+    #box{
+    width: 70%;
+    height: 500px;
+    background-color: orange;
+    /* margin: 100px auto; */
+    /* transition: 1s; */
+    border-radius: 0;
+    }
+    
+}
+/* 또 하나 만들고 싶으면 맨위랑 그 아래 코드 둘 다 참고해서
+새로 만들어주면 됨 */
